@@ -14,11 +14,11 @@ for app_dir in app_dirs:
         
     for filename in os.listdir(app_dir):
         filepath = os.path.join(app_dir, filename)
-        if os.path.isfile(filepath) and filename.endswith(".exe"):
+        if os.path.isfile(filepath) and (filename.endswith(".exe") or filename.endswith(".msi")):
             print(f"\033[31mInstalling {filename}...\033[0m")
             os.system(filepath)
         else:
-            print(f"\033[31mSkipping {filename} (not an executable file)\033[0m")
+            print(f"\033[31mSkipping {filename} (not an executable or installer file)\033[0m")
 
 while True:
     answer = input("Are you done with the installation process? (y/n): ").lower()
@@ -34,11 +34,11 @@ while True:
                 
             for filename in os.listdir(app_dir):
                 filepath = os.path.join(app_dir, filename)
-                if os.path.isfile(filepath) and filename.endswith(".exe"):
+                if os.path.isfile(filepath) and (filename.endswith(".exe") or filename.endswith(".msi")):
                     print(f"\033[31mInstalling {filename}...\033[0m")
                     os.system(filepath)
                 else:
-                    print(f"\033[31mSkipping {filename} (not an executable file)\033[0m")
+                    print(f"\033[31mSkipping {filename} (not an executable or installer file)\033[0m")
     else:
         print("Invalid input. Please enter 'y' or 'n'.")
 
