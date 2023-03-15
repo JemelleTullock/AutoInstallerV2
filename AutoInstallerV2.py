@@ -16,7 +16,7 @@ for app_dir in app_dirs:
         filepath = os.path.join(app_dir, filename)
         if os.path.isfile(filepath) and (filename.endswith(".exe") or filename.endswith(".msi")):
             print(f"\033[31mInstalling {filename}...\033[0m")
-            os.system(filepath)
+            os.system(f'"{filepath}"')
         else:
             print(f"\033[31mSkipping {filename} (not an executable or installer file)\033[0m")
 
@@ -36,7 +36,7 @@ while True:
                 filepath = os.path.join(app_dir, filename)
                 if os.path.isfile(filepath) and (filename.endswith(".exe") or filename.endswith(".msi")):
                     print(f"\033[31mInstalling {filename}...\033[0m")
-                    os.system(filepath)
+                    os.system(f'"{filepath}"')
                 else:
                     print(f"\033[31mSkipping {filename} (not an executable or installer file)\033[0m")
     else:
